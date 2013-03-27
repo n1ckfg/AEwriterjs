@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AEwriterjs</title>
+    <style type="text/css">
+      #player{
+      width:640px;
+      height:360px;
+      }
+      #container{
+      width:640px;
+      height:360px;
+      border:1px solid black;
+      margin:auto;
+      }
+      a{
+        text-decoration:none;
+      }
+      a:hover{
+        text-decoration:underline;
+      }
+    </style>
+    <script type="text/javascript" src="http://fox-gieg.com/js/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="http://fox-gieg.com/js/leap.min.js"></script>
+    <script type="text/javascript">
+      
+      var fingers = {};
+      var pos = [ 0,0,0 ];
+      //var pos = [ 0,0 ];
+      Leap.loop(function(frame) {
+        var fingerIds = {};
+        var handIds = {};
+        for (var pointableId = 0, pointableCount = frame.pointables.length; pointableId != pointableCount; pointableId++) {
+          var pointable = frame.pointables[pointableId];
+           pos = [ pointable.tipPosition[0], pointable.tipPosition[1], pointable.tipPosition[2] ];
+           //pos = [ pointable.tipPosition[0], pointable.tipPosition[1], -pointable.tipPosition[2] ];
+          //pos = [ pointable.tipPosition[0], pointable.tipPosition[1] ];
+          console.log(pos);
+          //alert(""+pos);
+          //var finger = fingers[pointable.id]
+          //var origin = new THREE.Vector3(pointable.tipPosition[0], pointable.tipPosition[1], -pointable.tipPosition[2])
+          //var direction = new THREE.Vector3(pointable.direction[0], pointable.direction[1], -pointable.direction[2]);
+        }
+      });
+      
+    </script>
+    <script type="text/javascript">
+      var player,button;
+      var obj = "";
+
+      function setup(){
+        player = Processing.getInstanceById("player");
+        button = document.getElementById("button");
+        button.onclick = saveText;
+      }
+
+        function saveText() {
+        var uriContent = "data:text/plain;charset=utf-8," + encodeURIComponent(obj);
+        window.open(uriContent);
+      }
+
+      window.onload = setup;
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <canvas id="player" data-processing-sources="AEwriter.pde AEkeys.pde Boid.pde Controls.pde Tracker.pde"></canvas>
+      <a href="#" id="button">[ download] </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>...&nbsp;SPACE to record &nbsp;|&nbsp; L to toggle Leap</i>
+    </div>
+  </body>
+</html>
