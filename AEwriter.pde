@@ -18,7 +18,7 @@ float scaleNum  = 1.0 / (weight + 2);
 //---
 boolean tracePath = true;
 String scriptsFilePath = "scripts";
-//String obj = ""; //PLACEHOLDER FOR PJS
+//String obj1 = ""; //PLACEHOLDER FOR PJS
 //float[] pos = {0,0,0}; //PLACEHOLDER FOR PJS
 //**************************
 
@@ -43,7 +43,7 @@ Tracker tracker;
 
 void writeAllKeys() {
   if (writeAE) AEkeysMain();  // After Effects, JavaScript
-  //if (writeMaya) mayaKeysMain();  // Maya, Python
+  if (writeMaya) mayaKeysMain();  // Maya, Python
 }
 
 void initSettings() {
@@ -135,7 +135,7 @@ boolean hitDetect(float x1, float y1, float w1, float h1, float x2, float y2, fl
   }
 }
 
-    //3D Hit Detect.  Assumes center.  xyz, whd of object 1, xyz, whd of object 2.
+    //3D Hit Detect.  Assumes center.  xyz, whd of obj1ect 1, xyz, whd of obj1ect 2.
   boolean hitDetect3D(PVector p1, PVector s1, PVector p2, PVector s2) {
     s1.x /= 2;
     s1.y /= 2;
