@@ -10,8 +10,8 @@ void AEkeysMain() {
       AEeffects();
     }
     obj1 += "\r";
-    obj1 += "\t" + "var expr = \"var v=transform.position.velocity;\" + \"\r\"" + "\r";
-    obj1 += "\t\t" + "\"var offset = 90;\" + \"\r\"" + "\r";
+    obj1 += "\t" + "var expr = \"var v=transform.position.velocity;\"" + "\r";
+    obj1 += "\t\t" + "\"var offset = 90;\"" + "\r";
     obj1 += "\t\t" + "\"offset + radiansToDegrees(Math.atan2(v[1],v[0]));\"" + "\r";
     obj1 += "\t" + "solid.transform.zRotation.expression = expr;" + "\r";
     obj1 += "\t" + "var p = solid.property(\"position\");" + "\r";
