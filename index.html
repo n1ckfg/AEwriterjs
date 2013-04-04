@@ -3,14 +3,14 @@
   <head>
     <title>AEwriterjs</title>
     <style type="text/css">
-      #player{
+      #pjs{
       width:640px;
       height:360px;
       }
       #container{
       width:640px;
-      height:360px;
-      border:1px solid black;
+      height:800px;
+      /*border:1px solid black;*/
       margin:auto;
       }
       a{
@@ -23,6 +23,7 @@
     <script type="text/javascript" src="http://fox-gieg.com/js/processing-1.4.1.min.js"></script>
     <!--<script type="text/javascript" src="http://fox-gieg.com/js/jquery.min.js"></script>-->
     <!--<script type="text/javascript" src="http://fox-gieg.com/js/jquery-ui-custom.min.js"></script>-->
+    <script type="text/javascript" src="http://fox-gieg.com/js/swfobject.js"></script>
     <script type="text/javascript" src="http://fox-gieg.com/js/leap.min.js"></script>
     <script type="text/javascript">
       
@@ -50,13 +51,13 @@
       
     </script>
     <script type="text/javascript">
-      var player,button1,button2;
+      var pjs,button1,button2;
       var obj1 = "You haven't recorded anything yet.";
       var obj2 = "You haven't recorded anything yet.";
 
       function setup(){
-        player = Processing.getInstanceById("player");
-        //document.getElementById("player").focus();
+        pjs = Processing.getInstanceById("pjs");
+        //document.getElementById("pjs").focus();
         button1 = document.getElementById("button1");
         button1.onclick = saveText1;
         button2 = document.getElementById("button2");
@@ -78,10 +79,29 @@
   </head>
   <body>
     <div id="container">
-      <canvas id="player" data-processing-sources="AEwriter.pde AEkeys.pde MayaKeys.pde Boid.pde Controls.pde Tracker.pde"></canvas>
+      <br>
+      <span><i>Works in Chrome or Firefox</i></span>
+      <canvas id="pjs" data-processing-sources="AEwriter.pde AEkeys.pde MayaKeys.pde Boid.pde Controls.pde Tracker.pde"></canvas>
       <a href="#" id="button1">[ After Effects ]</a>&nbsp;&nbsp;&nbsp;
       <a href="#" id="button2">[ Maya ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <i>...&nbsp;SPACE to record &nbsp;|&nbsp; L to toggle Leap</i>
+    
+      <br><br><br>
+      <span><i>Example:</i></span>
+    <!-- **************** BEGIN FLASH OBJECT with Internet Explorer hack **************** -->
+
+      <div id="player"><video src="http://fox-gieg.com/patches/pjs/2013/aewriterjs/files/werner.mp4" preload="none" poster="http://fox-gieg.com/videos2/previews/static.jpg" width="640" height="360" controls="controls"><center><br><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player to see this video.</a><br><br></center></video></div> 
+
+      <script type="text/javascript">
+      var so = new SWFObject('http://fox-gieg.com/videos2/swf/player.swf','mpl','640','360','9','#000000');
+      so.addParam('allowscriptaccess','always');
+      so.addParam('allowfullscreen','true');
+      so.addParam('flashvars','&file=http://fox-gieg.com/patches/pjs/2013/aewriterjs/files/werner.mp4&image=http://fox-gieg.com/videos2/previews/static.jpg&backcolor=55567a&frontcolor=c0c1cc&lightcolor=eeeeee&controlbar=over&skin=http://fox-gieg.com/videos2/swf/overlay.swf');
+      so.write('player');
+      </script>
+
+    <!-- **************** END FLASH OBJECT with Internet Explorer hack **************** -->
+
     </div>
   </body>
 </html>
