@@ -1,0 +1,23 @@
+body{
+	font-family:"Verdana",sans-serif;
+	font-size:14px;
+}
+
+#pjs{
+width:640px;
+height:360px;
+}
+
+#container{
+width:640px;
+height:880px;
+/*border:1px solid black;*/
+margin:auto;
+}
+
+a{
+  text-decoration:none;
+}
+a:hover{
+  text-decoration:underline;
+}
