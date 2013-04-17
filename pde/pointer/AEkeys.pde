@@ -1,21 +1,32 @@
- void AEkeysMain() {
-	 AEkeysBegin();
-	 for (int i=0;i<numParticles;i++) {
-	    obj1 += "\r";
-	    obj1 += "\t" + "var expr = \"var v=transform.position.velocity;\" + " + "\r";
-	    obj1 += "\t\t" + "\"var offset = 90;\" + " + "\r";
-	    obj1 += "\t\t" + "\"offset + radiansToDegrees(Math.atan2(v[1],v[0]));\"" + "\r";
-	    obj1 += "\t" + "solid.transform.zRotation.expression = expr;" + "\r";
-	    obj1 += "\t" + "var p = solid.property(\"position\");" + "\r";
-	    //obj1 += "\t" + "var r = solid.property(\"rotation\");" + "\r";
-	    obj1 += "\r";
-	 
-		 for (int j=0;j<counter;j++) {
-		 	AEkeyPos(i,j);
-		 }
-	 }
-	 AEkeysEnd();   
- }
+void AEkeysMain() {
+  AEkeysBegin();
+  for (int i=0;i<numParticles;i++) {
+    obj1 += "\t" + "var solid = myComp.layers.addSolid([1.0, 1.0, 0], \"my square\", 50, 50, 1);" + "\r";
+    obj1 += "\t" + "solid.threeDLayer = true;" + "\r";
+    if(motionBlur){
+      obj1 += "\t" + "solid.motionBlur = true;" + "\r";
+    }
+    if(applyEffects){
+      AEeffects();
+    }
+    obj1 += "\r";
+    obj1 += "\t" + "var expr = \"var v=transform.position.velocity;\" + " + "\r";
+    obj1 += "\t\t" + "\"var offset = 90;\" + " + "\r";
+    obj1 += "\t\t" + "\"offset + radiansToDegrees(Math.atan2(v[1],v[0]));\"" + "\r";
+    obj1 += "\t" + "solid.transform.zRotation.expression = expr;" + "\r";
+    obj1 += "\t" + "var p = solid.property(\"position\");" + "\r";
+    //obj1 += "\t" + "var r = solid.property(\"rotation\");" + "\r";
+    obj1 += "\r";
+
+    for (int j=0;j<counter;j++) {
+      AEkeyPos(i,j);
+      //AEkeyRot(i,j);
+    }
+
+    obj1 += "\r";
+}
+    AEkeysEnd();   
+}
 
 void AEkeysBegin() {
   //dataAE = new Data();
