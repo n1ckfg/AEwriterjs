@@ -1,30 +1,96 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <title>AEwriterjs</title>
-    <!-- css -->
-    <link type="text/css" rel="stylesheet" href="css/main.css"/>
-    <style type="text/css"></style>
-    <!-- js -->
+    <style type="text/css">
+      body{
+      	font-family:"Verdana",sans-serif;
+      	font-size:14px;
+      }
+    
+      #pjs{
+      width:640px;
+      height:360px;
+      }
+      #container{
+      width:640px;
+      height:880px;
+      /*border:1px solid black;*/
+      margin:auto;
+      }
+      a{
+        text-decoration:none;
+      }
+      a:hover{
+        text-decoration:underline;
+      }
+    </style>
     <script type="text/javascript" src="http://fox-gieg.com/js/processing-1.4.1.min.js"></script>
     <!--<script type="text/javascript" src="http://fox-gieg.com/js/jquery.min.js"></script>-->
     <!--<script type="text/javascript" src="http://fox-gieg.com/js/jquery-ui-custom.min.js"></script>-->
     <script type="text/javascript" src="http://fox-gieg.com/js/swfobject.js"></script>
     <script type="text/javascript" src="http://fox-gieg.com/js/leap.min.js"></script>
-    <script type="text/javascript" href="js/main.js"></script>
-    <script type="text/javascript"></script>
-  </head>
+    <script type="text/javascript">
+      
+      var fingers = {};
+      var pos = [ 0,0,0 ];
+      //var pos = [ 0,0 ];
 
+      Leap.loop(function(frame) {
+        //try{  
+          var fingerIds = {};
+          var handIds = {};
+          for (var pointableId = 0, pointableCount = frame.pointables.length; pointableId != pointableCount; pointableId++) {
+            var pointable = frame.pointables[pointableId];
+             pos = [ pointable.tipPosition[0], pointable.tipPosition[1], pointable.tipPosition[2] ];
+             //pos = [ pointable.tipPosition[0], pointable.tipPosition[1], -pointable.tipPosition[2] ];
+            //pos = [ pointable.tipPosition[0], pointable.tipPosition[1] ];
+            console.log(pos);
+            //alert(""+pos);
+            //var finger = fingers[pointable.id]
+            //var origin = new THREE.Vector3(pointable.tipPosition[0], pointable.tipPosition[1], -pointable.tipPosition[2])
+            //var direction = new THREE.Vector3(pointable.direction[0], pointable.direction[1], -pointable.direction[2]);
+          }
+        //}catch(e){}
+      });
+      
+    </script>
+    <script type="text/javascript">
+      var pjs,button1,button2;
+      var obj1 = "You haven't recorded anything yet.";
+      var obj2 = "You haven't recorded anything yet.";
+
+      function setup(){
+        pjs = Processing.getInstanceById("pjs");
+        //document.getElementById("pjs").focus();
+        button1 = document.getElementById("button1");
+        button1.onclick = saveText1;
+        button2 = document.getElementById("button2");
+        button2.onclick = saveText2;
+      }
+
+      function saveText1() {
+        var uriContent = "data:text/plain;charset=utf-8," + encodeURIComponent(obj1);
+        window.open(uriContent);
+      }
+
+      function saveText2() {
+        var uriContent = "data:text/plain;charset=utf-8," + encodeURIComponent(obj2);
+        window.open(uriContent);
+      }
+      
+      window.onload = setup;
+    </script>
+  </head>
   <body>
     <div id="container">
       <div style="z-index:-1;">
-        <span>created at <a href="http://gaffta.org">GAFFTA</a> for</span><br/>
+        <span>created at <a href="http://gaffta.org">GAFFTA</a> for</span><br>
         <span><a href="http://www.gaffta.org/2013/02/24/tribeca-hacks-archives/">Tribeca Hacks: Archives</a></span>
       </div>
-      <br/>
+      <br>
       <p><i>
-      <b>Record a flocking animation</b>...then save it as a script for After Effects or Maya.<br/>
+      <b>Record a flocking animation</b>...then save it as a script for After Effects or Maya.<br>
       (Right now, only works in desktop Chrome or Firefox.) &nbsp;&nbsp;&nbsp; <a style="font-size:0.75em;" href="https://github.com/N1ckFG/AEwriterjs">github &gt;&gt;</a>
       </i></p>
       <canvas id="pjs" data-processing-sources="AEwriter.pde AEkeys.pde MayaKeys.pde Boid.pde Controls.pde Tracker.pde"></canvas>
@@ -32,10 +98,11 @@
       <a href="#" id="button2">[ Maya ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <i>...&nbsp;SPACE to record &nbsp;|&nbsp; L to toggle Leap</i>
     
-      <br/><br/><br/>
+      <br><br><br>
       <span><i>Example:</i></span>
-    <!-- **************** BEGIN FLASH OBJECT **************** -->
-      <div id="player"><video src="http://fox-gieg.com/patches/pjs/2013/aewriterjs/files/werner.mp4" preload="none" poster="http://fox-gieg.com/videos2/previews/static.jpg" width="640" height="360" controls="controls"><center><br/><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player to see this video.</a><br/><br/></center></video></div> 
+    <!-- **************** BEGIN FLASH OBJECT with Internet Explorer hack **************** -->
+
+      <div id="player"><video src="http://fox-gieg.com/patches/pjs/2013/aewriterjs/files/werner.mp4" preload="none" poster="http://fox-gieg.com/videos2/previews/static.jpg" width="640" height="360" controls="controls"><center><br><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player to see this video.</a><br><br></center></video></div> 
 
       <script type="text/javascript">
       var so = new SWFObject('http://fox-gieg.com/videos2/swf/player.swf','mpl','640','360','9','#000000');
@@ -44,9 +111,9 @@
       so.addParam('flashvars','&file=http://fox-gieg.com/patches/pjs/2013/aewriterjs/files/werner.mp4&image=http://fox-gieg.com/videos2/previews/static.jpg&backcolor=55567a&frontcolor=c0c1cc&lightcolor=eeeeee&controlbar=over&skin=http://fox-gieg.com/videos2/swf/overlay.swf');
       so.write('player');
       </script>
-    <!-- **************** END FLASH OBJECT **************** -->
+
+    <!-- **************** END FLASH OBJECT with Internet Explorer hack **************** -->
 
     </div>
   </body>
-  
 </html>
