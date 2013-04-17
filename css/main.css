@@ -35,6 +35,48 @@ margin:auto;
   -o-transform:rotate(-10deg); /* Opera */
 }
 
+#navigation{
+  width:50px;
+  height:200px;
+  font-weight:bold;
+  z-index:2;
+  border:1px solid red;
+  position:absolute;
+  left:650px;
+  top:118px;
+  padding:5px;
+  border-radius:3px;
+  -ms-border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  -o-border-radius:3px;
+}
+
+.tile{
+  width:48px;
+  height:48px;
+  position:relative;
+  margin:auto;
+  opacity:0.4;
+  border-radius:5px;
+  -ms-border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  -o-border-radius:5px;
+}
+
+.tile:hover{
+  opacity:1.0;
+}
+
+#tile1{
+  background:red;
+}
+
+#tile2{
+  background:blue;
+}
+
 a{
   color:#111199;
   text-decoration:none;
