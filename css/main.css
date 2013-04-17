@@ -1,0 +1,45 @@
+body{
+	font-family:"Verdana",sans-serif;
+	font-size:14px;
+  color:black;
+  background:#eeeeff;
+}
+
+#pjs{
+width:640px;
+height:360px;
+border:1px solid black;
+}
+
+#container{
+width:640px;
+height:880px;
+position:relative;
+margin:auto;
+}
+
+#credits{
+  width:20em;
+  height:4em;
+  font-weight:bold;
+  z-index:2;
+  opacity:0.4;
+  /*border:1px solid red;*/
+  position:relative;
+  left:-10em;
+  top:1em;
+  transform:rotate(-10deg);
+  -ms-transform:rotate(-10deg); /* IE 9 */
+  -moz-transform:rotate(-10deg); /* Firefox */
+  -webkit-transform:rotate(-10deg); /* Safari and Chrome */
+  -o-transform:rotate(-10deg); /* Opera */
+}
+
+a{
+  color:#111199;
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
