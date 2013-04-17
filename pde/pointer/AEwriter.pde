@@ -6,6 +6,8 @@ boolean record = false;
 int numParticles = 1;
 Particle[] particle = new Particle[numParticles];
 boolean motionBlur = true;
+boolean applyEffects = false;
+boolean applySmoothing = true;
 
 int sW =640;
 int sH = 360;
