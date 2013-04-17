@@ -57,7 +57,8 @@ margin:auto;
   height:48px;
   position:relative;
   margin:auto;
-  opacity:0.4;
+  opacity:0.75;
+  border:1px solid red;
   border-radius:5px;
   -ms-border-radius:5px;
   -moz-border-radius:5px;
@@ -70,11 +71,11 @@ margin:auto;
 }
 
 #tile1{
-  background:red;
+  background:url("../images/flocking.gif");
 }
 
 #tile2{
-  background:blue;
+  background:url("../images/pointer.gif");
 }
 
 a{

@@ -1,14 +1,11 @@
 void keyPressed(){
-/*
- if(key==' '){
-   record = !record;
-   firstRun = false;
- }
-*/
   if(key=='l' || key=='L') useLeap = !useLeap;
 
   if(key==' '){
-  	if(!record & firstRun) obj1 = "";
+  	if(!record & firstRun){
+  		obj1 = "";
+  		obj2 = "";
+  	}
     record = !record;
     firstRun=false;
   }
