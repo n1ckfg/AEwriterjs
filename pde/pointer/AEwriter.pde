@@ -5,6 +5,7 @@ boolean record = false;
 
 int numParticles = 1;
 Particle[] particle = new Particle[numParticles];
+boolean motionBlur = true;
 
 int sW =640;
 int sH = 360;
