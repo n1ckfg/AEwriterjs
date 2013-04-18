@@ -69,7 +69,7 @@ void AEkeysBegin() {
  PVector lower, upper, centerNum;
  
  p = (PVector) particle[spriteNum].AEpath.get(frameNum);
- centerNum = new PVector((p.x/sW)*dW, (p.y/sH)*dH);
+ centerNum = new PVector((p.x/sW)*dW, (p.y/sH)*dH, (p.z/sD)*dD);
 
  if(applySmoothing && frameNum>smoothNum && frameNum<counter-smoothNum){
  lower = (PVector) particle[spriteNum].AEpath.get(frameNum-smoothNum);
