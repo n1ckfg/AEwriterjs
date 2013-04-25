@@ -54,7 +54,7 @@ var obj2 = "You haven't recorded anything yet.";
 
 function setup(){
   pjs = Processing.getInstanceById("pjs");
-  //document.getElementById("pjs").focus();
+  document.getElementById("pjs").focus();
   button1 = document.getElementById("button1");
   button1.onclick = saveText1;
   button2 = document.getElementById("button2");
