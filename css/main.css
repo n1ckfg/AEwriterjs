@@ -35,7 +35,7 @@ margin:auto;
   -moz-transform:rotate(-10deg); /* Firefox */
   -webkit-transform:rotate(-10deg); /* Safari and Chrome */
   -o-transform:rotate(-10deg); /* Opera */
-  text-shadow: 1px -1px #eeeeff;
+  text-shadow: 1px -1px 1px #eeeeff;
 }
 
 #navigation{
