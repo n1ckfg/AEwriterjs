@@ -25,7 +25,7 @@ margin:auto;
   height:4em;
   font-weight:bold;
   z-index:4;
-  opacity:0.8;
+  opacity:0.7;
   /*border:1px solid red;*/
   position:relative;
   left:-10em;
@@ -117,4 +117,5 @@ margin:auto;
   height:16px;
   background:url("http://fox-gieg.com/rkhive/rk-images/banner_side.gif");
   background-size:100% 100%;
+  opacity:0.2;
 }
