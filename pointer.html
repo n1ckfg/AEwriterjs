@@ -18,20 +18,23 @@
     </div>
     <!-- * -->
     <div id="container">
+      <!--
       <div id="credits">
         <span>created at <a href="http://gaffta.org">GAFFTA</a> for</span><br>
         <span style="font-size:1.2em;"><a href="http://www.gaffta.org/2013/02/24/tribeca-hacks-archives/">Tribeca Hacks: Archives</a></span><br>
         &nbsp;&nbsp;*<a style="font-size:0.75em;" href="https://github.com/N1ckFG/AEwriterjs">[ source ]</a>
       </div>
-
+      -->
       <div id="navigation">
         <a href="index.html"><div class="tile" id="tile1"></div></a>
         <a href="pointer.html"><div class="tile" id="tile2"></div></a>
       </div>
 
-      <p><i>
-      <b>Record a pointer animation</b>...then save it as a script for After Effects or Maya.<br>
-      (Right now this only works in desktop Chrome or Firefox.)
+      <p style="margin-top:1em;">
+      <center><span style="font-weight:bold;font-size:2em;font-style:italic;">AEwriterjs</span><br><a style="font-size:0.85em;" href="https://github.com/N1ckFG/AEwriterjs">[ source ]</a></center><br>
+
+      <i><b>Record a pointer animation</b>...then save it as a script for After Effects or Maya.<br>
+      (Tested in desktop Chrome and Firefox. Safari users must <a href="http://www.ikriz.nl/2011/08/23/enable-webgl-in-safari/">enable WebGL</a>.)
       </i></p>
       <canvas id="pjs" tabindex="1" data-processing-sources="pde/pointer/AEwriter.pde pde/pointer/AEkeys.pde pde/pointer/MayaKeys.pde pde/pointer/Particle.pde pde/pointer/Controls.pde"></canvas>
       <a href="#" id="button1">[ After Effects ]</a>&nbsp;&nbsp;&nbsp;
