@@ -1,3 +1,5 @@
+"use strict";
+
 function mayaKeysMain() {
     mayaKeysBegin();
     for (int i=0;i<numParticles;i++) {

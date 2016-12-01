@@ -1,3 +1,5 @@
+"use strict";
+
 // Seek_Arrive
 // Daniel Shiffman <http://www.shiffman.net>
 

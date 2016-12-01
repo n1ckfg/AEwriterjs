@@ -1,3 +1,5 @@
+"use strict";
+
 function keyPressed(){
   if(key=='l' || key=='L') useLeap = !useLeap;
 

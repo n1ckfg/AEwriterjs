@@ -1,3 +1,5 @@
+"use strict";
+
 function AEkeysMain() {
     AEkeysBegin();
     for (int i=0;i<numParticles;i++) {
